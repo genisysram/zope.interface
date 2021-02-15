@@ -1,5 +1,8 @@
 language: python
 dist: focal
+arch: 
+    - amd64
+    - ppc64le
 env:
   global:
     ZOPE_INTERFACE_STRICT_IRO: 1
