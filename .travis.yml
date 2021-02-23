@@ -2,7 +2,7 @@ language: python
 dist: focal
 arch: 
     - amd64
-    - ppc64le    
+    - ppc64le
 env:
   global:
     ZOPE_INTERFACE_STRICT_IRO: 1
@@ -146,3 +146,13 @@ notifications:
 cache: pip
 before_cache:
   - rm -f $HOME/.cache/pip/log/debug.log
+ 
+# Disable version pypy3 & pypy on ppc64le
+jobs: 
+  exclude:  
+    - arch: ppc64le
+      python: pypy2
+    - arch: ppc64le
+      python: pypy3 
+    - arch: ppc64le
+      python: 2.7 
