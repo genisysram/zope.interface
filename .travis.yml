@@ -60,7 +60,7 @@ jobs:
       script: bash .manylinux.sh
      # Adding line of code for ppc64le
      
-     - name: Documentation
+    - name: Documentation
       python: 3.6
       install:
         - pip install -U -e .[docs]
@@ -69,7 +69,7 @@ jobs:
         - sphinx-build -b doctest -d docs/_build/doctrees docs docs/_build/doctest
       after_success:
       env: ZOPE_INTERFACE_STRICT_IRO=0
-      arch:ppc64le
+      arch: ppc64le
 
     - name: CPython No C Extension
       env: PURE_PYTHON=1
