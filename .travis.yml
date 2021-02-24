@@ -92,6 +92,16 @@ jobs:
       language: generic
       env: TERRYFY_PYTHON='macpython 3.9.0'
 
+   # Disable version pypy3 & pypy on ppc64le
+
+  exclude:  
+    - arch: ppc64le
+      python: pypy2
+    - arch: ppc64le
+      python: pypy3 
+    - arch: ppc64le
+      python: 2.7    
+
 before_install:
   - |
     if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
@@ -147,12 +157,4 @@ cache: pip
 before_cache:
   - rm -f $HOME/.cache/pip/log/debug.log
  
-# Disable version pypy3 & pypy on ppc64le
-jobs: 
-  exclude:  
-    - arch: ppc64le
-      python: pypy2
-    - arch: ppc64le
-      python: pypy3 
-    - arch: ppc64le
-      python: 2.7 
+
