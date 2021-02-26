@@ -81,24 +81,18 @@ jobs:
     # manylinux wheel builds
     - name: 64-bit manylinux wheels (all Pythons)
       services: docker
-      env: DOCKER_IMAGE=quay.io/powercloud/rsct-ppc64le
+      env: DOCKER_IMAGE=manylinux2014_ppc64le
       install: docker pull $DOCKER_IMAGE
       script: bash .manylinux.sh
       arch: ppc64le
-
-    - name: 32-bit manylinux wheels (all Pythons)
-      services: docker
-      env: DOCKER_IMAGE=quay.io/powercloud/rsct-ppc64le PRE_CMD=linux32
-      install: docker pull $DOCKER_IMAGE
-      script: bash .manylinux.sh
-      arch: ppc64le
+  
 
     - name: aarch64 wheels
       dist: bionic
       group: edge
       arch: ppc64le
       virt: lxd
-      env: DOCKER_IMAGE=quay.io/powercloud/rsct-ppc64le
+      env: DOCKER_IMAGE=manylinux2014_ppc64le
       install: docker pull $DOCKER_IMAGE
       script: bash .manylinux.sh
 
