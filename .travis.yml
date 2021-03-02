@@ -81,7 +81,7 @@ jobs:
     # manylinux wheel builds
     - name: 64-bit manylinux wheels (all Pythons)
       services: docker
-      env: DOCKER_IMAGE=manylinux2014_ppc64le
+      env: DOCKER_IMAGE=quay.io/pypa/manylinux2014_ppc64le
       install: docker pull $DOCKER_IMAGE
       script: bash .manylinux.sh
       arch: ppc64le
@@ -92,7 +92,7 @@ jobs:
       group: edge
       arch: ppc64le
       virt: lxd
-      env: DOCKER_IMAGE=manylinux2014_ppc64le
+      env: DOCKER_IMAGE=quay.io/pypa/manylinux2014_ppc64le
       install: docker pull $DOCKER_IMAGE
       script: bash .manylinux.sh
 
