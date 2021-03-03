@@ -87,14 +87,7 @@ jobs:
       arch: ppc64le
   
 
-    - name: aarch64 wheels
-      dist: bionic
-      group: edge
-      arch: ppc64le
-      virt: lxd
-      env: DOCKER_IMAGE=quay.io/pypa/manylinux2014_ppc64le
-      install: docker pull $DOCKER_IMAGE
-      script: bash .manylinux.sh
+ 
 
     # It's important to use 'macpython' builds to get the least
     # restrictive wheel tag. It's also important to avoid
